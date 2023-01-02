@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rahove/Screens/Home.dart';
 import 'package:rahove/Screens/Register.dart';
 import 'package:rahove/Screens/helpers/button.dart';
 import 'package:rahove/Screens/helpers/field.dart';
@@ -65,7 +66,16 @@ class _LoginState extends State<Login> {
           SizedBox(
             height: 35,
           ),
-          button('Log in'),
+          button(
+            'Log in',
+            () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => Home(),
+                ),
+              );
+            },
+          ),
           SizedBox(
             height: 30,
           ),
@@ -127,8 +137,11 @@ class _LoginState extends State<Login> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => SignUp()));
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Home(),
+                    ),
+                  );
                 },
               ),
             ],

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:rahove/Screens/Home.dart';
 import 'package:rahove/Screens/LogIn.dart';
 import 'package:rahove/Screens/helpers/button.dart';
 import 'package:rahove/Screens/helpers/field.dart';
@@ -69,7 +70,16 @@ class _SignUpState extends State<SignUp> {
           SizedBox(
             height: 25,
           ),
-          button('Sign up'),
+          button(
+            'Log in',
+            () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => Home(),
+                ),
+              );
+            },
+          ),
           SizedBox(
             height: 30,
           ),
