@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:rahove/Screens/Components/bottomNavBAr.dart';
+import 'package:rahove/Screens/Components/bottomNavBar.dart';
+import 'package:rahove/Screens/helpers/streched.dart';
+import 'package:rahove/Screens/helpers/unStreched.dart';
 
 class UserInfo extends StatefulWidget {
   UserInfo({super.key});
@@ -95,10 +97,10 @@ class _UserInfoState extends State<UserInfo> with TickerProviderStateMixin {
               title: LayoutBuilder(
                 builder: (ctx, cons) => Opacity(
                   opacity: cons.biggest.height < 270 ? 1.0 : 0.0,
-                  child: unStreched(),
+                  child: unStreched(context),
                 ),
               ),
-              background: streched2(),
+              background: streched(context),
             ),
           ),
           SliverToBoxAdapter(
@@ -141,196 +143,31 @@ class _UserInfoState extends State<UserInfo> with TickerProviderStateMixin {
           ), //SliverChildBuildDelegate
         ],
       ),
-      bottomNavigationBar: bottomNavBar(_controller),
+      bottomNavigationBar: bottomNavBar(_controller, context),
     );
   }
 
-  Container unStreched() {
+  Widget setting(text, icon, number) {
     return Container(
-      constraints: BoxConstraints(maxHeight: 250, minHeight: 190),
       padding: EdgeInsets.all(20),
+      margin: EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
-        gradient: LinearGradient(colors: [
-          Color.fromARGB(255, 71, 119, 230),
-          Color.fromARGB(255, 141, 84, 233),
-        ], begin: Alignment.topLeft),
+        color: Color.fromARGB(255, 233, 231, 231),
       ),
-      child: Column(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [Icon(Icons.arrow_back_ios), SizedBox(), Text('Back')],
-          ),
-          ClipRRect(
-            child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(
-                      color: Colors.white,
-                      width: 2.0,
-                      strokeAlign: StrokeAlign.outside),
-                  borderRadius: BorderRadius.circular(100)),
-              child: Image(
-                image: AssetImage('assets/images/liya.jpg'),
-                width: 90,
-                height: 90,
-                fit: BoxFit.fill,
-              ),
-            ),
-            borderRadius: BorderRadius.circular(100),
-          ),
-          SizedBox(
-            height: 10,
+          icon,
+          Text(
+            text,
+            style: TextStyle(fontWeight: FontWeight.w500),
           ),
           Text(
-            'Liya Dereje',
-            style: TextStyle(
-              color: Color.fromRGBO(255, 255, 255, 1),
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-            ),
-          ),
-          Text(
-            'Liya Dereje2@gmail.com',
-            style: TextStyle(color: Colors.white, fontSize: 12),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text(
-              'Edit Profile',
-              style: TextStyle(color: Colors.black, fontSize: 16),
-            ),
-            style: ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(Colors.white),
-              padding: MaterialStatePropertyAll(
-                EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-              ),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget streched2() {
-    return Container(
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            alignment: Alignment.topLeft,
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-            child: Row(
-              children: [
-                Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.white,
-                ),
-                SizedBox(),
-                Text(
-                  'Back',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: 100,
-            width: double.infinity,
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: Color.fromARGB(139, 217, 217, 217),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'Liya Dereje',
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      'Liyadereje2@gmail.com',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Edit Profile',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w300),
-                  ),
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(
-                        Color.fromARGB(255, 151, 71, 255)),
-                    padding: MaterialStatePropertyAll(
-                      EdgeInsets.all(20),
-                    ),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            number.toString(),
+            style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
           )
         ],
       ),
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/images/liya.jpg'),
-          fit: BoxFit.fill,
-        ),
-      ),
     );
   }
-}
-
-Widget setting(text, icon, number) {
-  return Container(
-    padding: EdgeInsets.all(20),
-    margin: EdgeInsets.symmetric(vertical: 5),
-    decoration: BoxDecoration(
-      color: Color.fromARGB(255, 233, 231, 231),
-    ),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        icon,
-        Text(
-          text,
-          style: TextStyle(fontWeight: FontWeight.w500),
-        ),
-        Text(
-          number.toString(),
-          style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-        )
-      ],
-    ),
-  );
 }

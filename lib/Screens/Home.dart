@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last, sized_box_for_whitespace, unnecessary_null_comparison, prefer_if_null_operators, unnecessary_brace_in_string_interps
 
 import 'package:flutter/material.dart';
-import 'package:rahove/Screens/Components/bottomNavBAr.dart';
+import 'package:rahove/Screens/Components/bottomNavBar.dart';
 import 'package:rahove/Screens/UserInfo.dart';
 import 'package:rahove/Screens/helpers/operations.dart';
 import 'package:rahove/Screens/helpers/scrollObject.dart';
@@ -213,7 +213,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             ),
           ],
         ),
-        bottomNavigationBar: bottomNavBar(_controller));
+        bottomNavigationBar: bottomNavBar(_controller, context));
   }
 }
 

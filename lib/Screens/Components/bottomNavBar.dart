@@ -1,8 +1,12 @@
-// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, no_leading_underscores_for_local_identifiers, prefer_const_literals_to_create_immutables, file_names
 
 import 'package:flutter/material.dart';
+import 'package:rahove/Screens/Home.dart';
+import 'package:rahove/Screens/UserInfo.dart';
 
-Widget bottomNavBar(_controller) {
+List routes = [Home(), "", "", UserInfo()];
+
+Widget bottomNavBar(_controller, context) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
     margin: EdgeInsets.only(bottom: 10, left: 25, right: 20),
@@ -18,12 +22,17 @@ Widget bottomNavBar(_controller) {
       ],
     ),
     child: TabBar(
-      // onTap: (index) {
-      //   changeTab(index);
-      //   print(index);
-      // },
       indicatorColor: Color.fromARGB(255, 151, 71, 255),
       controller: _controller,
+      onTap: (value) => {
+        (value == 1)
+            ? null
+            : (value == 2)
+                ? null
+                : Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => routes[value]),
+                  )
+      },
       tabs: [
         Tab(
           icon: Icon(
