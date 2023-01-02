@@ -2,13 +2,13 @@
 
 import 'package:flutter/material.dart';
 
-Widget button(child) {
+Widget button(child, func) {
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(50),
     ),
     child: ElevatedButton(
-      onPressed: () {},
+      onPressed: func,
       child: Text(
         child,
         style: TextStyle(fontSize: 18),

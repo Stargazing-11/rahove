@@ -1,7 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:rahove/Screens/Home.dart';
 import 'package:rahove/Screens/LogIn.dart';
-import 'package:rahove/Splash.dart';
+import 'package:rahove/Screens/Splash2.dart';
+import 'package:rahove/Screens/User.dart';
+import 'package:rahove/Screens/UserInfo.dart';
+import 'package:rahove/Screens/Splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +24,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: "Poppin",
       ),
-      home: const Home(),
+      home: Splash2(),
       debugShowCheckedModeBanner: false,
     );
   }

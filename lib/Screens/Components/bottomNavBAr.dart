@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-Widget bottomNavBar(_controller, changeTab) {
+Widget bottomNavBar(_controller) {
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
     margin: EdgeInsets.only(bottom: 10, left: 25, right: 20),
@@ -18,10 +18,10 @@ Widget bottomNavBar(_controller, changeTab) {
       ],
     ),
     child: TabBar(
-      onTap: (index) {
-        changeTab(index);
-        print(index);
-      },
+      // onTap: (index) {
+      //   changeTab(index);
+      //   print(index);
+      // },
       indicatorColor: Color.fromARGB(255, 151, 71, 255),
       controller: _controller,
       tabs: [
