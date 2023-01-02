@@ -147,7 +147,7 @@ class _UserInfoState extends State<UserInfo> with TickerProviderStateMixin {
 
   Container unStreched() {
     return Container(
-      constraints: BoxConstraints(maxHeight: 260, minHeight: 200),
+      constraints: BoxConstraints(maxHeight: 250, minHeight: 190),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
         gradient: LinearGradient(colors: [
@@ -209,7 +209,7 @@ class _UserInfoState extends State<UserInfo> with TickerProviderStateMixin {
               ),
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20.0),
+                  borderRadius: BorderRadius.circular(15.0),
                 ),
               ),
             ),
